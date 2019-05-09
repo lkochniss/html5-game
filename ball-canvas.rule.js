@@ -24,8 +24,8 @@ class BallCanvasRule {
             this.ball.getPositionY() + this.ball.getDirectionY() < this.ball.getRadius() || 
             this.ball.getPositionY() + this.ball.getDirectionY() > this.canvas.height - this.ball.getRadius()) 
         {
-            ball.revertDirectionY();
-            ball.setColor(this.getRandomHexColor());
+            this.ball.revertDirectionY();
+            this.ball.setColor(this.getRandomHexColor());
         }
     }
 
