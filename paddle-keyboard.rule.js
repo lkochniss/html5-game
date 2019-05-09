@@ -6,24 +6,32 @@ class PaddleKeyboarRule {
         this.rightPressed = false;
         this.leftPressed = false;
 
-        this.document.addEventListener('keydown', this.keyDownHandler, false);
-        this.document.addEventListener('keyup', this.keyUpHandler, false);
+        this.document.addEventListener('keydown', this.keyDownHandler.bind(this), false);
+        this.document.addEventListener('keyup', this.keyUpHandler.bind(this), false);
     }
 
     keyDownHandler(event) {
-        if (event.key === 'Right' || event.key === 'ArrowRight' || event.key === 'd' || event.key === 'D') {
+        if (this.isValidKeyRight(event)) {
             this.rightPressed = true;
-        } else if (event.key === 'Left' || event.key === 'ArrowLeft' || event.key === 'a' || event.key === 'A') {
+        } else if (this.isValidKeyLeft(event)) {
             this.leftPressed = true;
         }
     }
     
     keyUpHandler(event) {
-        if (event.key === 'Right' || event.key === 'ArrowRight' || event.key === 'd' || event.key === 'D') {
+        if (this.isValidKeyRight(event)) {
             this.rightPressed = false;
-        } else if (event.key === 'Left' || event.key === 'ArrowLeft' || event.key === 'a' || event.key === 'A') {
+        } else if (this.isValidKeyLeft(event)) {
             this.leftPressed = false;
         }
+    }
+
+    isValidKeyRight(event) {
+        return event.key === 'Right' || event.key === 'ArrowRight' || event.key === 'd' || event.key === 'D';
+    }
+
+    isValidKeyLeft(event) {
+        return event.key === 'Left' || event.key === 'ArrowLeft' || event.key === 'a' || event.key === 'A'
     }
 
     isRightPressed() {

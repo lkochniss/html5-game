@@ -6,13 +6,17 @@ class PaddleCanvasRule {
     }
 
     run() {
-        this.checkPaddleMovement();
+        this.checkPaddleMovementRight();
+        this.checkPaddleMovementLeft();
     }
 
-    checkPaddleMovement() {
+    checkPaddleMovementRight() {
         if (this.paddleKeyboardRule.isRightPressed() && this.paddle.getPositionX() < this.canvas.width - this.paddle.getWidth()) {
             this.paddle.moveRight();
         }
+    }
+
+    checkPaddleMovementLeft() {
         if (this.paddleKeyboardRule.isLeftPressed() && this.paddle.getPositionX() > 0) {
             this.paddle.moveLeft();
         }
