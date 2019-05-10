@@ -68,6 +68,11 @@ class Ball {
         this.directionY = - this.directionY;
     }
 
+    enhanceSpeed() {
+        this.directionX = this.directionX * 1.02;
+        this.directionY = this.directionY * 1.02;
+    }
+
     getPositionY() {
         return this.positionY;
     }

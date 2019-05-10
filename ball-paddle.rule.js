@@ -16,6 +16,7 @@ class BallPaddleRule {
                 this.ball.getPositionX() < this.paddle.getPositionX() + this.paddle.getWidth()
             ) {
                 this.ball.revertDirectionY();
+                this.ball.enhanceSpeed();
             }
         }
     }
