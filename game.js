@@ -11,12 +11,15 @@ class Game {
         this.paddleKeyboardRule = new PaddleKeyboarRule(this.paddle, document);
         this.paddleCanvasRule = new PaddleCanvasRule(this.paddle, this.canvas, this.paddleKeyboardRule);
         this.ballPaddleRule = new BallPaddleRule(this.ball, this.paddle, this.canvas);
+
+        this.bricks = new Bricks(this.context);
     }
 
     draw() {
         this.refresh();
         this.ball.draw();
         this.paddle.draw();
+        this.bricks.draw();
         this.ballPaddleRule.run();
         this.ballCanvasRule.run();
         this.paddleCanvasRule.run();
