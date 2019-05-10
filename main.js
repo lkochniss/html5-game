@@ -4,4 +4,4 @@ function draw() {
     game.draw();
 }
 
-setInterval(draw, 10);
+var interval = setInterval(draw, 10);

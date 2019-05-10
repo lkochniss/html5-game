@@ -1,7 +1,8 @@
 class BallCanvasRule {
-    constructor(ball, canvas) {
+    constructor(ball, canvas, gameOverRule) {
         this.ball = ball;
         this.canvas = canvas;
+        this.gameOverRule = gameOverRule;
     }
 
     run() {
@@ -20,12 +21,15 @@ class BallCanvasRule {
     }
 
     checkBallCollisionY() {
-        if (
-            this.ball.getPositionY() + this.ball.getDirectionY() < this.ball.getRadius() || 
-            this.ball.getPositionY() + this.ball.getDirectionY() > this.canvas.height - this.ball.getRadius()) 
-        {
+        if (this.ball.getPositionY() + this.ball.getDirectionY() < this.ball.getRadius()) {
             this.ball.revertDirectionY();
             this.ball.setColor(this.getRandomHexColor());
+
+            return;
+        }
+
+        if (this.ball.getPositionY() + this.ball.getDirectionY() > this.canvas.height - this.ball.getRadius()) {
+            this.gameOverRule.run();
         }
     }
 

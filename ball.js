@@ -1,13 +1,15 @@
 class Ball {
     constructor(positionX, positionY, context) {
-        this.positionX = positionX
-        this.positionY = positionY;
+        this.startingPositionX = positionX;
+        this.startingPositionY = positionY;
         this.context = context;
 
         this.radius = 10;
         this.color = '#0095DD';
-        this.directionX = 2;
-        this.directionY = -2;
+        this.startingDirectionX = 2;
+        this.startingDirectionY = -2;
+        
+        this.reset();
     }
 
     draw() {
@@ -25,6 +27,13 @@ class Ball {
 
     setColor(color) {
         this.color = color;
+    }
+
+    reset() {
+        this.positionX = this.startingPositionX;
+        this.positionY = this.startingPositionY;
+        this.directionX = this.startingDirectionX;
+        this.directionY = this.startingDirectionY;
     }
     
     getRadius() {

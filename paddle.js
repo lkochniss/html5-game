@@ -34,4 +34,8 @@ class Paddle {
     getWidth() {
         return this.width;
     }
+
+    getHeight() {
+        return this.height;
+    }
 }
