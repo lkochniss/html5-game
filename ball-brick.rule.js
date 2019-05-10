@@ -17,6 +17,9 @@ class BallBrickRule {
             this.brick.isHit() === false
         ) {
             this.ball.revertDirectionY();
+            this.ball.changeToRandomColor();
+            this.ball.enhanceSpeed();
+
             this.brick.setHit(true);
         }
     }

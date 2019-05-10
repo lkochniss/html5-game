@@ -29,6 +29,10 @@ class Ball {
         this.color = color;
     }
 
+    changeToRandomColor() {
+        this.color = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    }
+
     reset() {
         this.positionX = this.startingPositionX;
         this.positionY = this.startingPositionY;
@@ -69,8 +73,8 @@ class Ball {
     }
 
     enhanceSpeed() {
-        this.directionX = this.directionX * 1.02;
-        this.directionY = this.directionY * 1.02;
+        this.directionX = this.directionX * 1.005;
+        this.directionY = this.directionY * 1.005;
     }
 
     getPositionY() {

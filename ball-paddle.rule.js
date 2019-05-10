@@ -17,6 +17,7 @@ class BallPaddleRule {
             ) {
                 this.ball.revertDirectionY();
                 this.ball.enhanceSpeed();
+                this.ball.changeToRandomColor();
             }
         }
     }

@@ -16,14 +16,16 @@ class BallCanvasRule {
             this.ball.getPositionX() + this.ball.getDirectionX() < this.ball.getRadius()) 
         {
             this.ball.revertDirectionX();
-            this.ball.setColor(this.getRandomHexColor());
+            this.ball.changeToRandomColor();
+            this.ball.enhanceSpeed();
         }
     }
 
     checkBallCollisionY() {
         if (this.ball.getPositionY() + this.ball.getDirectionY() < this.ball.getRadius()) {
             this.ball.revertDirectionY();
-            this.ball.setColor(this.getRandomHexColor());
+            this.ball.changeToRandomColor();
+            this.ball.enhanceSpeed();
 
             return;
         }
@@ -31,9 +33,5 @@ class BallCanvasRule {
         if (this.ball.getPositionY() + this.ball.getDirectionY() > this.canvas.height - this.ball.getRadius()) {
             this.gameOverRule.run();
         }
-    }
-
-    getRandomHexColor() {
-        return '#' + Math.floor(Math.random() * 16777215).toString(16);
     }
 }
